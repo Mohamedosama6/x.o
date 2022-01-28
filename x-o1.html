@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>x-o</title>
+       <link rel="stylesheet" href="./osama.css"/>
+       <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="m">
+        <font color="red" > <h1> <center> {x,o} اهلا بك في لعبه </center></h1></font>
+        <font color="red" > <h1> <center>  mohamed osama استمتع مع تحياتي</center></h1></font>
+       <center> <h1 class="player">player1(x): <p class="score" id="score1"></p></h1>
+        <h1 class="player">player2(o): <p class="score" id="score2"></p></h1></center> 
+    
+       
+        <div id="cont">
+            <div class="continer">
+                
+                <div class="box" id="0-0" ></div>
+                <div class="box" id="0-1" ></div>
+                <div class="box" id="0-2" ></div>
+            
+        
+                <div class="box" id="1-0" ></div>
+                <div class="box" id="1-1" ></div>
+                <div class="box" id="1-2" ></div>
+            
+        
+                <div class="box" id="2-0" ></div>
+                <div class="box" id="2-1" ></div>
+                <div class="box" id="2-2" ></div>
+
+
+                
+            </div>
+            </div>
+        </div>
+<script>
+let score1=document.getElementById("score1");
+let score2=document.getElementById("score2")
+let playerrole=0;
+
+let rowofbox={
+    "0":0,
+    "1":0,
+    "2":0
+}
+
+let columnofbox={
+    "0":0,
+    "1":0,
+    "2":0
+}
+
+let crossofbox={
+    "0":0,
+    "1":0
+}
+
+let gameover=false;
+
+let winner="";
+checkhappen=false
+function retrygame(){
+    playerrole=0
+    rowofbox={
+    "0":0,
+    "1":0,
+    "2":0
+    }
+    columnofbox={
+    "0":0,
+    "1":0,
+    "2":0
+    }
+    crossofbox={
+    "0":0,
+    "1":0
+    }
+    gameover=false;
+    winner=""
+    boxes=document.getElementsByClassName("box")
+    for(box of boxes){
+        box.innerHTML=""
+        box.data=false
+    }
+}
+
+function check(number,ch,player,score){
+    if( number == ch){
+            gameover=true
+            checkhappen=true
+            winner=player
+            score.innerHTML=Number(score.innerHTML)+1
+            alert(`${winner} is win`)
+            retrygame()
+            return true
+        }
+    return false
+}
+
+
+function endgame(box,m){
+    
+    if(m==0){
+        var finish=3
+        var add=1
+        var player="player1"
+        var score=score1
+    }else{
+        var finish=-3
+        var add=-1
+        var player="player2"
+        var score=score2
+    }
+    row=box.id[0]
+    column=box.id[2]
+
+
+    if(row == column){
+        crossofbox["0"]+=add
+       
+        
+        if(row=="1"){
+            crossofbox["1"]+=add
+        }
+
+    }
+
+    else if(box.id=="2-0" || box.id=="0-2"){
+        crossofbox["1"]+=add
+    }
+    rowofbox[row]+=add
+    columnofbox[column]+=add
+
+
+    let arr=[crossofbox["0"],
+    crossofbox["0"],
+    rowofbox[row],
+    columnofbox[column]]
+    for (const ch of arr){
+        c=check(ch,finish,player,score);
+        if(c){
+            break;
+        }
+    }
+    
+}
+function game(e){
+    box=e.target
+    if(!box.data && !gameover && box.className=="box"){
+        if(playerrole%2==0){
+            box.innerHTML="x"
+            endgame(box,0)
+    }
+        else{
+            box.innerHTML="o"
+            endgame(box,1)
+    }
+    if(checkhappen){
+        checkhappen=false
+    }else{
+    playerrole++
+    box.data=true
+    }
+    if(playerrole>=9){
+        alert(`draw`)
+        gameover=true
+        retrygame()
+    }
+   
+    }
+       
+        
+    }
+    
+
+let continer=document.getElementsByClassName("continer")[0];
+continer.onclick=game;
+/*for(const box of document.getElementsByClassName("box")){
+box.onclick=()=>{console.log(box.id)}
+}*/
+            </script></div>
+   <br> </br>
+   <div class="mm"> <center>
+      <a href="https://www.facebook.com/profile.php?id=100053890304449"> <img src="./facebook.png" width="80" > </a> 
+   <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fapi.whatsapp.com%2Fsend%2F%3Fphone%3D%252B201289670014%26text%26app_absent%3D0%26fbclid%3DIwAR2Eyuxa6zLOd6A2i7ZOXqiRA8Uc9LEkeR77sribEyx80dlUvyibVkLMf0U&h=AT2wXDb5NjVvOaINzvAegmX72Xi_itk2xkCQZvQVEE1he_6MRUSlcwV-PqnlxFHjjAlKTBQp2-QSDTjFXOH_6iYATFVCVZ-ZmMGKw1leP1cKc_ekzqAEckKaSipd_e9F0so-Fg"> <img src="./whatsapp.png" width="80" > </a>
+   <a href="https://t.me/Mohamedosama992"> <img src="./cf4a56ca53058054e914aee3af999941ced9f5fc3349382c1bb7344f0cdb0206_200.jfif" width="80" > </a> 
+   <footer><p><i><h3> <font color="red"> مصمم الموقع/مبرمج*محمد اسامه محمد </i></h3></font><h3> &copy;2021 </h4> </p>
+
+</div>
+</center>
+
+
+</body>
+
+</html>

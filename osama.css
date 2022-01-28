@@ -1,0 +1,90 @@
+.box{
+    height: 150px;
+    width:150px;
+    background-color: aquamarine;
+    text-align: center;
+    font-size: 75px;
+}
+#cont{
+    width:500px;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+.continer{
+    display:grid;
+    grid-gap: 15px;
+    grid-template-columns: auto auto auto;
+}
+.score{
+    display:inline-block;
+    
+}
+.player{
+  display:inline-block;
+  color: aqua;
+  margin-left: 50px;
+  margin-top: 0;
+}
+.m{
+   background-image: url(./images.jfif
+   );
+}
+.mm{
+    height: 10;
+    width: 10;
+    min-height: 0%;
+    background-color: blue;
+}
+@media (max-width: 991px) {
+    #sign-in{
+      margin-left: 230px !important;
+      text-align: center;
+    }
+   #log{
+     margin-left: 5px;
+   }
+   .learn{
+     height: 300px;
+   }
+  }
+  
+  @media (max-width: 767px) {
+   #sign-in{
+     margin-left: 140px !important;
+     text-align: center;
+   }
+  #log{
+    margin-left: 5px;
+  }
+  .arrival_section .box{
+   padding-left: 400px;
+  }
+  #img{
+  width: 42%;
+  height: 60%;
+  
+  margin-top: 90px;
+     }
+  }
+  @media (max-width: 575px){
+   #sign-in{
+     margin-left: 115px !important;
+     text-align: center;
+   }
+   .beuty{
+     width: 30%;
+   }
+   .arrival_section .box{
+     padding-left: 250px;
+   }
+   .arrival_bg_box{
+  height: 200px;
+  width: 200px;
+   }
+   #img{
+     width: 41%;
+     height: 44%;
+     
+     margin-top: 90px;
+         }
+  }
